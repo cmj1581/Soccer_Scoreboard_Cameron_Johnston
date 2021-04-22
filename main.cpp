@@ -1,6 +1,8 @@
 //Dr. Tyson McMillan a Soccer Scoreboard using 
 //Object Oriented Programming in C++
 //Updates 4-21-2021 - Dr_T
+//Dr_T teaching Object Oriented Scoreboard in C++ 
+//Cameron Johnston Scoreboard Assignment
 
 #include <iostream>
 #include <string> 
@@ -14,6 +16,7 @@ class Team
     bool homeStatus; 
     string name; 
     int shotsOnGoal; 
+    string coachName;
   public:
       Team() //default constructor 
       {
@@ -21,15 +24,19 @@ class Team
         homeStatus = false; //visitor = false, home = true
         name = "DefaultTeamName"; 
         shotsOnGoal = 0; 
+        coachName = "Default Coach Name";
       }
       void setScore(int s) { score = s; }
       void setHomeStatus(bool hs) { homeStatus = hs; }
       void setName(string n) { name = n; }
       void setShotsOnGoal(int sog) { shotsOnGoal = sog; }
+      void setCoachName(string sCN) {coachName = sCN; }
       int getScore() const { return score; }
       bool getHomeStatus() const { return homeStatus; }
       string getName() const { return name; }
       int getShotsOnGoal() const { return shotsOnGoal; }
+      string getCoachName)() const {return coachName; }
+
 };
 
 class Scoreboard
