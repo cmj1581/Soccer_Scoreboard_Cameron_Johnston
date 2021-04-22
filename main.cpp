@@ -35,7 +35,7 @@ class Team
       bool getHomeStatus() const { return homeStatus; }
       string getName() const { return name; }
       int getShotsOnGoal() const { return shotsOnGoal; }
-      string getCoachName)() const {return coachName; }
+      string getCoachName() const {return coachName; }
 
 };
 
@@ -63,8 +63,10 @@ class Scoreboard
       color = "\x1b[32;4m"; //green 
       string score = "\x1b[36;1m"; //score color 
       cout << color << "Soccer Scoreboard Dr_T Sytle" << reset << endl; 
-      cout << home.getName() << "\t\t" << visitor.getName() << endl; 
-      cout << score << home.getScore() << reset << "\t\t" << visitor.getScore() << endl; 
+      cout << home.getName() << "\t" << visitor.getName() << endl; 
+      cout << score << home.getScore() << reset << "\t\t        " << visitor.getScore() << endl; 
+      cout << home.getCoachName() << "\t\t" << visitor.getCoachName() << endl;  
+      
     }
 };
 
@@ -75,6 +77,7 @@ int main()
   Team tTwo; 
   string newName = ""; 
   string userChoice = ""; 
+  string newCoachName = "";
   int newScore = 0; 
 
   //Set the home team 
@@ -93,6 +96,10 @@ int main()
       //menu choices 
       cout << "A = Update Home Team Name" << endl; 
       cout << "B = Update Home Team Score" << endl; 
+      cout << "C = Update Home Team Coach Name" << endl;
+      cout << "D = Update Visitor Team Name" << endl;
+      cout << "F = Update Visitor Team Score" << endl;
+      cout << "G = Update Visitor Team Coach Name" << endl;
       cout << "E = Exit" << endl;
       cout << ">"; 
       cin >> userChoice; 
@@ -100,7 +107,7 @@ int main()
       if(userChoice == "A" || userChoice == "a")
       {
         //Dr_T challenge Accept a new name for s's home team
-        cout << "****Update Home Team Score module*** " << endl; 
+        cout << "****Update Home Team Name Module*** " << endl; 
         cout << "\nPlease enter a new name for the home team: ";
         cin >> newName; 
         //change that home team's default name
@@ -109,10 +116,40 @@ int main()
       else if(userChoice == "B" || userChoice == "b")
       {
         cout << "\nUpdate Home Score Module****" << endl; 
-        cout << "\nPlease enter a new score for teh home team: "; 
+        cout << "\nPlease enter a new score for the home team: "; 
         cin >> newScore; 
         tOne.setScore(newScore);  //set the new score for tOne        
       }
+      else if (userChoice == "C" || userChoice == "b") {
+        cout << "\nUpdate Home Coach Name****" << endl;
+        cout << "\nPlease enter a new coach name for the home team: ";
+        cin >> newCoachName;
+        tOne.setCoachName(newCoachName);
+      }
+
+      else if(userChoice == "D" || userChoice == "d")
+      {
+        cout << "\nUpdate Visitor Name Module****" << endl; 
+        cout << "\nPlease enter a new name for the visitor team: "; 
+        cin >> newName; 
+        tTwo.setName(newName);
+      }
+
+      else if(userChoice == "F" || userChoice == "f")
+      {
+        cout << "\nUpdate Visitor Score Module****" << endl; 
+        cout << "\nPlease enter a new score for the visitor team: "; 
+        cin >> newScore; 
+        tTwo.setScore(newScore);  //set the new score for tOne        
+      }
+
+      else if (userChoice == "G" || userChoice == "g") {
+        cout << "\nUpdate Visitor Coach Name****" << endl;
+        cout << "\nPlease enter a new coach name for the visitor team: ";
+        cin >> newCoachName;
+        tTwo.setCoachName(newCoachName);
+      }
+
       else if(userChoice == "E" || userChoice == "e")
       {
         cout << "Exit chosen." << endl; 
@@ -124,6 +161,7 @@ int main()
       }
 
       s.setHome(tOne); //refresh the data in s to the new updates...
+      s.setVisitor(tTwo);
   
   }while(userChoice != "E" && userChoice != "e");
 
