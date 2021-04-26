@@ -76,22 +76,19 @@ class Scoreboard
       cout << color << "Football Scoreboard by Cameron Johnston" << reset << endl;
       for (int i = 0; i < 50; i++) {cout << "_"; } cout << endl; 
 
-      cout << home.getName();
-      cout << setw(30) << visitor.getName() << endl;
+      cout << home.getName() << setw(25) << visitor.getName()<< endl;
  
-      cout << score << home.getScore() << reset;
-      cout << setw(30) << visitor.getScore() << endl; 
+      cout << score << home.getScore() << setw(25) << visitor.getScore() << endl << reset; 
 
-      cout << home.getCoachName();
-      cout << setw(30) << visitor.getCoachName() << endl;  
+      cout << home.getCoachName() << setw(25) << visitor.getCoachName() << endl;  
       for (int i = 0; i < 47; i++) {cout << "-"; } cout << endl;
 
       cout << "Timeouts Left: " << endl;
       if (home.getHomeStatus() == true) {
-        cout << home.getTimeOuts() << setw(30) << visitor.getTimeOuts() << endl;
+        cout << home.getTimeOuts() << setw(25) << visitor.getTimeOuts() << endl;
       }
       else if (visitor.getHomeStatus() == true) {
-        cout << visitor.getTimeOuts() << setw(30) << home.getTimeOuts() << endl;
+        cout << visitor.getTimeOuts() << setw(25) << home.getTimeOuts() << endl;
       }
       else {
         cout << "Error:" << endl;
@@ -101,12 +98,10 @@ class Scoreboard
 
       cout << "Home:    - ";
       if (home.getHomeStatus() == true) {
-        cout << home.getCityName() << " - ";
-        cout << setw(16) << home.getName();
+        cout << home.getCityName() << " - " << setw(10) << home.getName();
       }
       else if (visitor.getHomeStatus() == true) {
-        cout << visitor.getCityName() << " - ";
-        cout << setw(16) << visitor.getName();
+        cout << visitor.getCityName() << " - " << setw(10) << visitor.getName();
       }
       else {
         cout << "Error:" << endl;
@@ -116,12 +111,10 @@ class Scoreboard
 
       cout << "Visitor: - ";
       if (home.getHomeStatus() == false) {
-        cout << home.getCityName() << " - ";
-        cout << setw(16) << home.getName();
+        cout << home.getCityName() << " - " << setw(10) << home.getName();
       }
       else if (visitor.getHomeStatus() == false) {
-        cout << visitor.getCityName() << " - ";
-        cout << setw(16) << visitor.getName();
+        cout << visitor.getCityName() << " - " << setw(10) << visitor.getName();
       }
       else {
         cout << "Error:" << endl;
@@ -277,7 +270,7 @@ int main()
       s.setVisitor(tTwo);
       
   
-  }while(userChoice != "E" && userChoice != "e");
+  }while(userChoice != "X" && userChoice != "x");
 
 
   return 0; 
